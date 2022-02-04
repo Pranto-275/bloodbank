@@ -7,48 +7,24 @@
     <div class="container">
         <div class="row">
 
+            @foreach ($data as $item)
             <div class="col-12 col-sm-6 col-md-4 py-5">
                 <div class="card">
                     <img src="images/admin.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 style="display: inline-block;">Mobile:</h6> <span> 01830445326</span><br>
-                        <h6 style="display: inline-block;">Email:</h6> <span> pranto@gmail.com</span><br>
-                        <h6 style="display: inline-block;">Gender:</h6> <span> male</span><br>
-                        <h6 style="display: inline-block;">Address:</h6> <span> kashimpur</span><br>
-                        <h6 style="display: inline-block;">Blood Group0:</h6> <span> B+</span><br>
+                        <h5 class="card-title">{{ $item->fullname }}</h5>
+                        <h6 style="display: inline-block;">Mobile:</h6> <span> {{ $item->mobile }}</span><br>
+                        <h6 style="display: inline-block;">Email:</h6> <span> {{ $item->email }}</span><br>
+                        <h6 style="display: inline-block;">Gender:</h6> <span> {{ $item->gender }}</span><br>
+                        <h6 style="display: inline-block;">Address:</h6> <span> {{ $item->address }}</span><br>
+                        <h6 style="display: inline-block;">Blood Group:</h6> <span> {{ $item->blood_group }}</span><br>
 
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 py-5">
-                <div class="card ">
-                    <img src="images/admin.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 style="display: inline-block;">Mobile:</h6> <span> 01830445326</span><br>
-                        <h6 style="display: inline-block;">Email:</h6> <span> pranto@gmail.com</span><br>
-                        <h6 style="display: inline-block;">Gender:</h6> <span> male</span><br>
-                        <h6 style="display: inline-block;">Address:</h6> <span> kashimpur</span><br>
-                        <h6 style="display: inline-block;">Blood Group0:</h6> <span> B+</span><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 py-5">
-                <div class="card">
-                    <img src="images/admin.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 style="display: inline-block;">Mobile:</h6> <span> 01830445326</span><br>
-                        <h6 style="display: inline-block;">Email:</h6> <span> pranto@gmail.com</span><br>
-                        <h6 style="display: inline-block;">Gender:</h6> <span> male</span><br>
-                        <h6 style="display: inline-block;">Address:</h6> <span> kashimpur</span><br>
-                        <h6 style="display: inline-block;">Blood Group0:</h6> <span> B+</span><br>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
+        {{ $data->links('pagination::bootstrap-4') }}
     </div>
 </section>

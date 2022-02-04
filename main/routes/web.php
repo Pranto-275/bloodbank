@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user\donorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 
 //ADMIN ROUTE START
@@ -35,9 +36,10 @@ Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function (
         return view('test');
     })->name('test');
 
-    Route::get('/homepage', function () {
-        return view('user.home');
-    })->name('usersite');
+  
+
+    Route::resource('becomedonor', donorController::class);
+
 
     Route::get('/about', function () {
         return view('user.about');
@@ -47,16 +49,19 @@ Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function (
         return view('user.whydonor');
     })->name('whydonor');
 
-    Route::get('/becomedonor', function () {
-        return view('user.becomedonor');
-    })->name('becomedonor');
+
+    Route::resource('becomedonor', donorController::class);
 
     Route::get('/searchdonor', function () {
         return view('user.searchdonor');
     })->name('searchdonor');
 
+
     Route::get('/contactus', function () {
         return view('user.contactus');
     })->name('contactus');
+
+
 });
 //USER ROUTE END
+

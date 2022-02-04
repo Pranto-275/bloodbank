@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('usersite') }}">
+        <a class="navbar-brand" href="{{ route('becomedonor.index') }}">
             <img src="" alt="" style="width:40px;" class="rounded-pill"> BloodBank
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('becomedonor') }}">Become A donor</a>
+                    <a class="nav-link " href="{{ route('becomedonor.create') }}">Become A donor</a>
                 </li>
 
                 <li class="nav-item">

@@ -11,9 +11,9 @@
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center ">
 
 
-                <button class="becomeadonor">
+                <a href="{{ route('becomedonor.create') }}"  class="btn becomeadonor">
                         Become a donor
-                    </button>
+                </a>
 
             </div>
 
