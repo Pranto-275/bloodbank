@@ -1,0 +1,9 @@
+.card .textcolor h4 {
+    color: white !important;
+}
+
+@media(max-width:991px) {
+    #homesection .carousel-inner .carousel-item img {
+        height: auto !important;
+    }
+}
