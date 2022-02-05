@@ -34,7 +34,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }
         if ($user->hasRole('user')) {
-            return redirect()->route('usersite');
+            return redirect()->route('becomedonor.index');
         }
     }
 

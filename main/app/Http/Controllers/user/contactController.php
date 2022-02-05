@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\Donor;
+use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class donorController extends Controller
+class contactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,7 @@ class donorController extends Controller
      */
     public function index()
     {
-        $data = Donor::orderBy('id', 'desc')->orderBy('id', 'desc')->where('status', 1)->paginate(6);
-        return view('user.home', compact('data'));
+        //
     }
 
     /**
@@ -26,7 +26,8 @@ class donorController extends Controller
      */
     public function create()
     {
-        return view('user.becomedonor');
+        $data = User::where('name', '=', 'admin')->first();
+        return view('user.contactus', compact('data'));
     }
 
     /**
@@ -37,42 +38,23 @@ class donorController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'fullname' => 'required',
-            'mobile' => 'required',
             'email' => 'required|email',
-            'age' => 'required',
-            'gender' => 'required',
-            'bloodgroup' => 'required',
-            'address' => 'required',
+            'mobile' => 'required',
             'message' => 'required',
-            'image' => 'required'
-
-
         ]);
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $path = 'images';
-            $file_name = rand(0000, 9999) . '.' . $file->getClientOriginalExtension();
-            $file->move($path, $file_name);
-        }
 
-
-        $data = new Donor();
+        $data = new Contact();
         $data->fullname = $request->fullname;
-        $data->mobile = $request->mobile;
         $data->email = $request->email;
-        $data->age = $request->age;
-        $data->gender = $request->gender;
-        $data->blood_group = $request->bloodgroup;
-        $data->address = $request->address;
+        $data->mobile = $request->mobile;
         $data->message = $request->message;
-        $data->image = $path . '/' . $file_name;
-
+        $data->addby = auth()->user()->name;
         $data->save();
-        return back()->with('success', 'Successfully added donor,Please wait for approval');
+
+        return back()->with('success', 'Your comments are send!');
     }
 
     /**

@@ -21,7 +21,7 @@
             </div>
             @endif
 
-            <form action="{{ route('becomedonor.store') }}" method="POST">
+            <form action="{{ route('becomedonor.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-4 p-2">
@@ -99,6 +99,8 @@
                                 <option value="">Select</option>
                                 <option value="a+">A+</option>
                                 <option value="a-">A-</option>
+                                <option value="b+">B+</option>
+                                <option value="b-">B-</option>
                             </select>
                             <span style="color: red">
                                 @error('bloodgroup')
@@ -124,12 +126,24 @@
 
 
                     </div>
-                    <div class="col-12 col-sm-6 col-md-8 p-2">
+                    <div class="col-12 col-sm-6 col-md-4 p-2">
                         <div>
                             <label class="form-label">Message</label>
                             <textarea class="form-control" name="message" id="" cols="30" rows="2"></textarea>
                             <span style="color: red">
                                 @error('message')
+                                {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 p-2">
+                        <div>
+                            <label class="form-label">Image</label>
+                            <input type="file" class="form-control" name="image">
+                            <span style="color: red">
+                                @error('image')
                                 {{ $message }}
                                 @enderror
                             </span>

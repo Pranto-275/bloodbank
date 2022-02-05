@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user\contactController;
 use App\Http\Controllers\user\donorController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +33,7 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
 
 //USER ROUTE START
 Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function () {
-    Route::get('/test', function () {
-        return view('test');
-    })->name('test');
 
-  
 
     Route::resource('becomedonor', donorController::class);
 
@@ -57,11 +54,6 @@ Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function (
     })->name('searchdonor');
 
 
-    Route::get('/contactus', function () {
-        return view('user.contactus');
-    })->name('contactus');
-
-
+    Route::resource('contact', contactController::class);
 });
 //USER ROUTE END
-
