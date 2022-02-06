@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->middleware('preventloginpage');
 
 
 Auth::routes();
@@ -27,6 +27,9 @@ Auth::routes();
 
 Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/adminhome', function () {
+        return view('admin.layouts.app');
+    });
 });
 
 //ADMIN ROUTE END
