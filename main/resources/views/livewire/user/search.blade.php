@@ -21,7 +21,7 @@
 
                         <div>
                             <label class="form-label">Blood Group</label>
-                            <select class="form-select" wire:model='bloodgroup' >
+                            <select class="form-select" wire:model.lazy='bloodgroup' >
                                 <option value="">Select</option>
                                 <option value="a+">A+</option>
                                 <option value="a-">A-</option>
