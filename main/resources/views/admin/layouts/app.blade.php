@@ -8,10 +8,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
    <link rel="stylesheet" href="{{ asset('admin/css/all.css') }}">
    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
     <script src="{{ asset('admin/js/popper.js') }}"></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>

@@ -15,7 +15,7 @@
                         <a href="{{ route('addbloodgroup') }}"><i class="fas fa-plus-circle pr-2"></i> Add Blood Group</a>
                     </li>
                     <li>
-                        <a href="{{ route('managebloodgroup') }}"><i class="fas fa-tasks pr-2"></i> Manage Blood Group</a>
+                        <a href="{{ route('bloodgroup.index') }}"><i class="fas fa-tasks pr-2"></i> Manage Blood Group</a>
                     </li>
                 </ul>
             </li>
