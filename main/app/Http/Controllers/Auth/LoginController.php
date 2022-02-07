@@ -32,7 +32,7 @@ class LoginController extends Controller
     {
         if ($user->hasRole('admin')) {
 
-            return redirect()->route('home');
+            return redirect()->route('adminhome');
         }
         if ($user->hasRole('user')) {
             return redirect()->route('becomedonor.index');

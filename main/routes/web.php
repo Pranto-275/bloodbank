@@ -26,10 +26,40 @@ Auth::routes();
 //ADMIN ROUTE START
 
 Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
     Route::get('/adminhome', function () {
-        return view('admin.layouts.app');
-    });
+        return view('admin.dashboard');
+    })->name('adminhome');
+
+    Route::get('/managebloodgroup', function () {
+        return view('admin.managebloodgroup');
+    })->name('managebloodgroup');
+
+
+    Route::get('/addbloodgroup', function () {
+        return view('admin.addbloodgroup');
+    })->name('addbloodgroup');
+
+    Route::get('/adddonor', function () {
+        return view('admin.adddonor');
+    })->name('adddonor');
+
+    Route::get('/donorlist', function () {
+        return view('admin.donorlist');
+    })->name('donorlist');
+
+    Route::get('/managequery', function () {
+        return view('admin.managequery');
+    })->name('managequery');
+
+    Route::get('/managepage', function () {
+        return view('admin.managepage');
+    })->name('managepage');
+
+    Route::get('/updatecontact', function () {
+        return view('admin.updatecontact');
+    })->name('updatecontact');
 });
 
 //ADMIN ROUTE END
