@@ -22,7 +22,7 @@
 
 
             <li>
-                <a href="{{ route('adddonor') }}"><i class="fas fa-hands-helping pr-2"></i> Add Donor</a>
+                <a href="{{ route('adddonor.index') }}"><i class="fas fa-hands-helping pr-2"></i> Add Donor</a>
             </li>
 
 

@@ -13,7 +13,7 @@
    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
    <link rel="stylesheet" href="{{ asset('admin/css/all.css') }}">
    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-
+   @livewireStyles
 </head>
 
 <body>
@@ -30,6 +30,7 @@
         </div>
     </div>
 
+    @livewireScripts
     <script src="{{ asset('js/jquery-3.5.1.slim.min.js') }}"></script>
     <script src="{{ asset('admin/js/popper.js') }}"></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>

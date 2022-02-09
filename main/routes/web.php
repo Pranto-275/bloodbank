@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\bloodgroupController;
+use App\Http\Controllers\admin\donorController as AdminDonorController;
 use App\Http\Controllers\user\contactController;
 use App\Http\Controllers\user\donorController;
 use Illuminate\Support\Facades\Route;
@@ -50,13 +51,16 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
     //     return view('admin.addbloodgroup');
     // })->name('addbloodgroup');
 
-    Route::get('/adddonor', function () {
-        return view('admin.adddonor');
-    })->name('adddonor');
+
+
+    Route::resource('adddonor', AdminDonorController::class);
+
 
     Route::get('/donorlist', function () {
         return view('admin.donorlist');
     })->name('donorlist');
+
+
 
     Route::get('/managequery', function () {
         return view('admin.managequery');
