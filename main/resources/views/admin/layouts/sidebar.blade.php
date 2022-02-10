@@ -37,7 +37,7 @@
 
 
             <li>
-                <a href="{{ route('managepage') }}"><i class="fas fa-question-circle pr-2"></i> Manage Page</a>
+                <a href="{{ route('managepage.index') }}"><i class="fas fa-question-circle pr-2"></i> Manage Page</a>
             </li>
 
 

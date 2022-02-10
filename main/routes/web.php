@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\bloodgroupController;
 use App\Http\Controllers\admin\donorController as AdminDonorController;
+use App\Http\Controllers\admin\pageController;
 use App\Http\Controllers\admin\querylistController;
 use App\Http\Controllers\user\contactController;
 use App\Http\Controllers\user\donorController;
@@ -64,9 +65,7 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
     Route::get('/contactlist', [querylistController::class, 'queryList'])->name('contactlist');
 
 
-    Route::get('/managepage', function () {
-        return view('admin.managepage');
-    })->name('managepage');
+    Route::resource('managepage', pageController::class);
 
     Route::get('/updatecontact', function () {
         return view('admin.updatecontact');
@@ -74,6 +73,10 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
 });
 
 //ADMIN ROUTE END
+
+
+
+
 
 //USER ROUTE START
 Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function () {
