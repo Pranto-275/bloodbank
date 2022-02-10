@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\BloodGroup;
 use App\Models\Donor;
 use Livewire\Component;
 
@@ -21,7 +22,8 @@ class Search extends Component
     public function render()
     {
         $search = '%' . $this->search . '%';
-        $data = Donor::where('blood_group', 'Like', $search)->orderBy('id', 'desc')->get();
-        return view('livewire.user.search', compact('data'));
+        $data = Donor::where('blood_group', 'Like', $search)->where('status', 1)->orderBy('id', 'desc')->paginate(6);
+        $group = BloodGroup::orderBy('id', 'desc')->get();
+        return view('livewire.user.search', compact('data', 'group'));
     }
 }

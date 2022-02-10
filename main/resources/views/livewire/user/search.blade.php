@@ -22,11 +22,11 @@
                         <div>
                             <label class="form-label">Blood Group</label>
                             <select class="form-select" wire:model.lazy='bloodgroup' >
-                                <option value="">Select</option>
-                                <option value="a+">A+</option>
-                                <option value="a-">A-</option>
-                                <option value="b+">B+</option>
-                                <option value="b-">B-</option>
+                                 <option >Select</option>
+                                @foreach ($group as $item)
+
+                               <option value="{{ $item->blood_group }}">{{ $item->blood_group }}</option>
+                               @endforeach
                             </select>
                         </div>
                     </div>
@@ -56,6 +56,7 @@
 
                    @endforeach
                 </div>
+                {{ $data->links('pagination::bootstrap-4') }}
             </div>
             @endif
 
