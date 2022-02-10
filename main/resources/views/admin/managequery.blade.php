@@ -20,52 +20,28 @@
                     <th>Name</th>
                     <th>Mobile No</th>
                     <th>Email</th>
-                    <th>Date</th>
                     <th>Message</th>
-                    <th>Action</th>
+                    <th>Added By</th>
+                    <th>Date</th>
+
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
 
-                    <td class="text-center">
-                        <button class="btn btn-success"> <i class="fab fa-readme"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
 
-                    <td class="text-center">
-                        <button class="btn btn-success"> <i class="fab fa-readme"></i>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-
-                    <td class="text-center">
-                        <button class="btn btn-success"> <i class="fab fa-readme"></i>
-                        </button>
-                    </td>
-                </tr>
+               @foreach ($data as $item)
+               <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->fullname }}</td>
+                <td>{{ $item->mobile }}</td>
+                <td>{{ $item->email }}</td>
+                <td>{{ $item->message }}</td>
+                <td>{{ $item->addby }}</td>
+                <td>{{ $item->created_at }}</td>
+            </tr>
+`
+               @endforeach
             </tbody>
         </table>
     </div>

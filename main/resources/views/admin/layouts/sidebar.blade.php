@@ -32,7 +32,7 @@
 
 
             <li>
-                <a href="{{ route('managequery') }}"><i class="fas fa-users pr-2"></i>Manage Query</a>
+                <a href="{{ route('contactlist') }}"><i class="fas fa-users pr-2"></i>Manage Query</a>
             </li>
 
 
