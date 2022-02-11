@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\pageController;
 use App\Http\Controllers\admin\querylistController;
 use App\Http\Controllers\user\contactController;
 use App\Http\Controllers\user\donorController;
+use App\Http\Controllers\user\pageController as UserPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,13 +86,12 @@ Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function (
     Route::resource('becomedonor', donorController::class);
 
 
-    Route::get('/about', function () {
-        return view('user.about');
-    })->name('about');
 
-    Route::get('/whydonor', function () {
-        return view('user.whydonor');
-    })->name('whydonor');
+    Route::get('/about', [UserPageController::class, 'index'])->name('about');
+
+    Route::get('/whydonor', [UserPageController::class, 'whydonor'])->name('whydonorpage');
+
+
 
 
     Route::resource('becomedonor', donorController::class);

@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('whydonor') }}">Why Become Donor</a>
+                    <a class="nav-link " href="{{ route('whydonorpage') }}">Why Become Donor</a>
                 </li>
 
 

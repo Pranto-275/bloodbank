@@ -25,8 +25,8 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="page">
                         <option value="">Select</option>
-                        <option value="aboutpage">About Page</option>
-                        <option value="whydonorpage">Why donor</option>
+                        <option value="About Us">About Page</option>
+                        <option value="Why Donor ">Why donor</option>
                     </select>
                 </div>
                 <span style="color: red">

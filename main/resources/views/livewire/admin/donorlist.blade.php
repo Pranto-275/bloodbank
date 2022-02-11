@@ -8,9 +8,7 @@
           <strong>Successfully Disabled</strong>
         </div>
 
-        <script>
-          $(".alert").alert();
-        </script>
+
     @endif
 
     @if (session()->has('successfullyactivated'))
@@ -21,9 +19,7 @@
         <strong>Successfully Activated</strong>
       </div>
 
-      <script>
-        $(".alert").alert();
-      </script>
+
     @endif
 
 
