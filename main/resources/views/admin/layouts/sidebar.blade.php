@@ -41,10 +41,6 @@
             </li>
 
 
-            <li>
-                <a href="{{ route('updatecontact') }}"><i class="fas fa-id-card pr-2"></i> Update Contact Info</a>
-
-            </li>
             <li class="mt-5">
 
 

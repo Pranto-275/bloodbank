@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\bloodgroupController;
+use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\donorController as AdminDonorController;
 use App\Http\Controllers\admin\pageController;
 use App\Http\Controllers\admin\querylistController;
@@ -32,32 +33,18 @@ Auth::routes();
 
 Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function () {
 
-
-    Route::get('/adminhome', function () {
-        return view('admin.dashboard');
-    })->name('adminhome');
-
+    Route::get('/adminhome', [dashboardController::class, 'dashboard'])->name('adminhome');
 
     Route::resource('bloodgroup', bloodgroupController::class);
     Route::get('/addbloodgroup', function () {
         return view('admin.addbloodgroup');
     })->name('addbloodgroup');
 
-
-
     Route::get('/managebloodgroup', function () {
         return view('admin.managebloodgroup');
     })->name('managebloodgroup');
 
-
-    // Route::get('/addbloodgroup', function () {
-    //     return view('admin.addbloodgroup');
-    // })->name('addbloodgroup');
-
-
-
     Route::resource('adddonor', AdminDonorController::class);
-
 
     Route::get('/donorlist', function () {
         return view('admin.donorlist');
@@ -65,12 +52,7 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
 
     Route::get('/contactlist', [querylistController::class, 'queryList'])->name('contactlist');
 
-
     Route::resource('managepage', pageController::class);
-
-    Route::get('/updatecontact', function () {
-        return view('admin.updatecontact');
-    })->name('updatecontact');
 });
 
 //ADMIN ROUTE END
@@ -82,24 +64,17 @@ Route::middleware(['auth', 'role:admin', 'preventbackhistory'])->group(function 
 //USER ROUTE START
 Route::middleware(['auth', 'role:user', 'preventbackhistory'])->group(function () {
 
-
     Route::resource('becomedonor', donorController::class);
-
-
 
     Route::get('/about', [UserPageController::class, 'index'])->name('about');
 
     Route::get('/whydonor', [UserPageController::class, 'whydonor'])->name('whydonorpage');
-
-
-
 
     Route::resource('becomedonor', donorController::class);
 
     Route::get('/searchdonor', function () {
         return view('user.searchdonor');
     })->name('searchdonor');
-
 
     Route::resource('contact', contactController::class);
 });
